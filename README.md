@@ -1,7 +1,7 @@
 # Technologie Chmurowe - Laboratorium 5
 
-**Imię i nazwisko:** Ireneusz Witek
-**Grupa:** TI6.2
+**Imię i nazwisko:** [Ireneusz Witek]
+**Grupa:** [TI6.2]
 
 ## Opis
 Obraz Docker oparty na Ubuntu z zainstalowanym serwerem Apache.  
