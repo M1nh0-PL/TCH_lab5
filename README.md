@@ -9,9 +9,10 @@ Projekt stanowi realizację zadania z Laboratorium 5, którego głównym celem j
 
 Zaprojektowany plik `Dockerfile` składa się z dwóch etapów:
 
-1. **Etap 1 (Builder):** Obraz budowany jest całkowicie od podstaw z wykorzystaniem instrukcji `FROM scratch`. Jako minimalne środowisko operacyjne zaimportowano system plików Alpine Linux z lokalnego archiwum tar (`alpine-minirootfs-3.23.3-x86_64.tar.gz`). Na tym etapie, przy pomocy instrukcji `ARG VERSION`, generowany jest skrypt powłoki (`/page.sh`), który dynamicznie tworzy stronę internetową zawierającą przekazaną wersję aplikacji, nazwę hosta (ID kontenera) oraz jego lokalny adres IP.
+1. **Etap 1 :** Obraz budowany jest z wykorzystaniem instrukcji `FROM scratch`.Zaimportowano system plików Alpine Linux z archiwum tar (`alpine-minirootfs-3.23.3-x86_64.tar.gz`).Przy pomocy instrukcji `ARG VERSION`, generowany jest skrypt powłoki (`/page.sh`), który dynamicznie tworzy stronę internetową zawierającą przekazaną wersję aplikacji, nazwę hosta (ID kontenera) oraz jego lokalny adres IP.
 
-2. **Etap 2 (Produkcja):** Jako środowisko uruchomieniowe wykorzystano oficjalny, lekki obraz `nginx:alpine`. Z etapu pierwszego kopiowany jest wyłącznie gotowy skrypt startowy. Dodatkowo w kontenerze instalowane jest narzędzie `curl`, które służy do regularnego odpytywania serwera WWW w ramach zaimplementowanej instrukcji `HEALTHCHECK`. Zapewnia to ciągłe monitorowanie stanu i dostępności uruchomionej aplikacji.
+2. **Etap 2 :** Jako środowisko uruchomieniowe wykorzystano obraz `nginx:alpine`. Z etapu pierwszego kopiowany jest  gotowy skrypt startowy. Dodatkowo w kontenerze instalowane jest narzędzie `curl`, które służy do regularnego odpytywania serwera WWW w ramach zaimplementowanej instrukcji `HEALTHCHECK`. Zapewnia to ciągłe monitorowanie stanu i dostępności uruchomionej aplikacji.
+
 ## Polecenia
 **Budowa obrazu:**
 ```bash
