@@ -11,7 +11,7 @@ Zaprojektowany plik `Dockerfile` składa się z dwóch etapów:
 
 1. **Etap 1 :** Obraz budowany jest z wykorzystaniem instrukcji `FROM scratch`.Zaimportowano system plików Alpine Linux z archiwum tar (`alpine-minirootfs-3.23.3-x86_64.tar.gz`).Przy pomocy instrukcji `ARG VERSION`, generowany jest skrypt powłoki (`/page.sh`), który dynamicznie tworzy stronę internetową zawierającą przekazaną wersję aplikacji, nazwę hosta (ID kontenera) oraz jego lokalny adres IP.
 
-2. **Etap 2 :** Jako środowisko uruchomieniowe wykorzystano obraz `nginx:alpine`. Z etapu pierwszego kopiowany jest  gotowy skrypt startowy. Dodatkowo w kontenerze instalowane jest narzędzie `curl`, które służy do regularnego odpytywania serwera WWW w ramach zaimplementowanej instrukcji `HEALTHCHECK`. Zapewnia to ciągłe monitorowanie stanu i dostępności uruchomionej aplikacji.
+2. **Etap 2 :** Jako środowisko uruchomieniowe wykorzystano obraz `nginx:alpine`. Z etapu pierwszego kopiowany jest  gotowy skrypt startowy. Zaimplementowano instrukcji `HEALTHCHECK` bazującą na narzędziu `curl`. Zapewnia to ciągłe monitorowanie stanu i dostępności uruchomionej aplikacji.
 
 ## Polecenia
 **Budowa obrazu:**
