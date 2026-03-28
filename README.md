@@ -13,7 +13,7 @@ Zaprojektowany plik `Dockerfile` składa się z dwóch etapów:
 
 2. **Etap 2 :** Jako środowisko uruchomieniowe wykorzystano obraz `nginx:alpine`. Z etapu pierwszego kopiowany jest  gotowy skrypt startowy. Zaimplementowano instrukcję `HEALTHCHECK` bazującą na narzędziu `curl`. Zapewnia to ciągłe monitorowanie stanu i dostępności uruchomionej aplikacji.
 
-## Polecenia
+## Polecenia:
 **Budowa obrazu:**
 ```bash
 docker build --pull --no-cache --build-arg VERSION=2.1.0 -t lab5-iw .
