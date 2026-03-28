@@ -21,9 +21,11 @@ docker build --pull --no-cache --build-arg VERSION=2.1.0 -t lab5-iw .
 ![Zrzut ekranu z budowania obrazu](1.png)
 
 **Uruchomienie serwera oraz sprawdzenie działania:**
+Polecenie do uruchomienia serwera:
 ```bash
 docker run -d -p 8080:80 --name serwer_lab5 lab5-iw
 ```
+Polecenie potwierdzające działanie serwera:
 ```bash
 docker ps
 ```
