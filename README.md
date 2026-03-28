@@ -12,4 +12,4 @@ Projekt stanowi realizację zadania z Laboratorium 5, którego celem jest demons
 ```bash
 docker build --pull --no-cache --build-arg VERSION=2.1.0 -t lab5-iw .
 ```
-!(1.png)
+![Zrzut ekranu z budowania obrazu](1.png)
