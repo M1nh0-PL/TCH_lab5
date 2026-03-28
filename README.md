@@ -5,9 +5,7 @@
 **Grupa:** TI6.2
 
 ## Opis
-Obraz Docker oparty na Ubuntu z zainstalowanym serwerem Apache.  
-
-Zawiera prostą stronę WWW z danymi studenta.
+[cite_start]Projekt stanowi realizację zadania z Laboratorium 5, którego celem jest demonstracja wieloetapowego budowania obrazów Docker[cite: 535].
 
 ## Uruchomienie
 docker build -t web100 . 
