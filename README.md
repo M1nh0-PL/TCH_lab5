@@ -11,4 +11,5 @@ Projekt stanowi realizację zadania z Laboratorium 5, którego celem jest demons
 **Budowa obrazu: **
 ```bash
 docker build --pull --no-cache --build-arg VERSION=2.1.0 -t lab5-iw .
+```
 !(1.png)
