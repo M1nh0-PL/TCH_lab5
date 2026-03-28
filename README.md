@@ -8,19 +8,19 @@
 Projekt stanowi realizację zadania z Laboratorium 5, którego celem jest demonstracja wieloetapowego budowania obrazów Docker.
 
 ## Polecenia
-**Budowa obrazu: **
+**Budowa obrazu:**
 ```bash
 docker build --pull --no-cache --build-arg VERSION=2.1.0 -t lab5-iw .
 ```
 ![Zrzut ekranu z budowania obrazu](1.png)
 
-**Uruchomienie serwera: **
+**Uruchomienie serwera:**
 ```bash
 docker run -d -p 8080:80 --name serwer_lab5 lab5-iw
 ```
 ![Zrzut ekranu z uruchomienia serwera](2.png)
 
-**Działanie serwera: **
+**Działanie serwera:**
 ```bash
 docker ps
 ```
