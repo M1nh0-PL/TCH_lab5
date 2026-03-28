@@ -5,10 +5,13 @@
 **Grupa:** TI6.2
 
 ## Opis
-Zgodnie z wymogami zadania, plik `Dockerfile` został podzielony na dwa etapy:
-1. **Etap 1 (Builder):** Zbudowany od podstaw w oparciu o pusty obraz `scratch`. Do środka wgrano minimalny system plików Alpine Linux za pomocą archiwum `.tar`. W tym etapie generowany jest skrypt startowy serwera, do którego wstrzykiwana jest wersja aplikacji (przez zmienną `ARG`) oraz skrypty odczytujące w locie `hostname` i adres IP kontenera.
-2. **Etap 2 (Produkcja):** Oparty na oficjalnym obrazie `nginx:alpine`. Kopiuje on gotowy skrypt z pierwszego etapu. Zaimplementowano w nim również instrukcję `HEALTHCHECK` opartą na poleceniu `curl`, która stale monitoruje dostępność aplikacji.
+Projekt stanowi realizację zadania z Laboratorium 5, którego głównym celem jest praktyczne zastosowanie **wieloetapowego budowania obrazów (ang. multi-stage build)** w środowisku Docker. Metoda ta pozwala na optymalizację rozmiaru finalnego obrazu oraz oddzielenie środowiska budującego od produkcyjnego.
 
+Zaprojektowany plik `Dockerfile` składa się z dwóch etapów:
+
+1. **Etap 1 (Builder):** Obraz budowany jest całkowicie od podstaw z wykorzystaniem instrukcji `FROM scratch`. Jako minimalne środowisko operacyjne zaimportowano system plików Alpine Linux z lokalnego archiwum tar (`alpine-minirootfs-3.23.3-x86_64.tar.gz`). Na tym etapie, przy pomocy instrukcji `ARG VERSION`, generowany jest skrypt powłoki (`/app.sh`), który dynamicznie tworzy stronę internetową zawierającą przekazaną wersję aplikacji, nazwę hosta (ID kontenera) oraz jego lokalny adres IP.
+
+2. **Etap 2 (Produkcja):** Jako środowisko uruchomieniowe wykorzystano oficjalny, lekki obraz `nginx:alpine`. Z etapu pierwszego kopiowany jest wyłącznie gotowy skrypt startowy. Dodatkowo w kontenerze instalowane jest narzędzie `curl`, które służy do regularnego odpytywania serwera WWW w ramach zaimplementowanej instrukcji `HEALTHCHECK`. Zapewnia to ciągłe monitorowanie stanu i dostępności uruchomionej aplikacji.
 ## Polecenia
 **Budowa obrazu:**
 ```bash
